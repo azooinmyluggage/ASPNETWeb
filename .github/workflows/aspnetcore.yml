@@ -9,11 +9,15 @@ jobs:
 
     # checkout the repo
     - uses: actions/checkout@master
+    
+    - name: Run a one-line script
+      run: dir
       
     # use msbuild to build VS solution 
     - name: build solution
       run: |
         echo "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\bin\MSBuild.exe WebApplication1.csproj"
-        "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" WebApplication1.sln
+        "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" WebApplication1.csproj
     
-    
+    - name: Run a one-line script
+      run: dir
