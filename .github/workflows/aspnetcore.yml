@@ -1,0 +1,19 @@
+name: ASP.NET app deploy to Azure
+
+on: [push,pull_request]
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-2019
+    steps:
+
+    # checkout the repo
+    - uses: actions/checkout@master
+      
+    # use msbuild to build VS solution 
+    - name: build solution
+      run: |
+        echo "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\bin\MSBuild.exe WebApplication1.csproj"
+        "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" WebApplication1.sln
+    
+    
